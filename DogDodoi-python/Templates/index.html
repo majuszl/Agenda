@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pt-br" dir="ltr">
+<head>
+    <meta charset="UTF-8"> <!-- Define o conjunto de caracteres como UTF-8 para suportar caracteres especiais -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Configura a escala inicial e a largura da visualização para dispositivos móveis -->
+    <title>Cálculo da idade do animal</title> <!-- Define o título da página -->
+</head>
+<body>
+    <h1>Descubra a idade humana do seu PET</h1> <!-- Título principal da página -->
+    <form action="/calculo_idade/" method="POST">
+    <label for="especie">Qual a espécie do seu animalzinho (gato - G / cachorro - C)?</label> <br>
+    <input type="text" id="especie" name="especie"> <br><br>
+    <label for="idade">Qual a idade do seu animalzinho (somente números)?</label><br>
+    <input type="text" id="idade" name="idade"> <br>
+    <input type="submit" value="Salvar">
+</form>
+    <ul>
+        {% for mensagem in mensagem %} <!-- Loop através de cada contato na lista de contatos -->
+        <li>{{ contato[1] }} - {{ contato[2] }} - {{ contato[3] }}{% if contato[4] %} (Favorito){% endif %} <!-- Exibe as informações do contato, incluindo o nome, número de telefone e email. Se for favorito, adiciona um marcador -->
+            <ul>
+                <li><a href="/calculo_idade/{{ loop.index0 }}">Cálculor</a></li> <!-- Link para editar o contato -->
+            </ul>
+        </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
